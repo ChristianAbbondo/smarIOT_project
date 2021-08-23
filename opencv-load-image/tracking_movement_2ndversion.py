@@ -1,6 +1,6 @@
 # importiamo i pacchetti necessario
 import os
-from collections import deque
+from collections import deque #
 from imutils.video import VideoStream
 import numpy as np
 import argparse
@@ -58,8 +58,8 @@ while True:
 	# a series of dilations and erosions to remove any small
 	# blobs left in the mask
 	mask = cv2.inRange(hsv, greenLower, greenUpper)
-	mask = cv2.erode(mask, None, iterations=2)
-	mask = cv2.dilate(mask, None, iterations=2)
+	mask = cv2.erode(mask, None, iterations=4)
+	mask = cv2.dilate(mask, None, iterations=15)
 	# find contours in the mask and initialize the current
 	# (x, y) center of the ball
 	cnts = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL,
